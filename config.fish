@@ -24,13 +24,8 @@ if test -d /usr/local/go
 end
 
 if test -d $HOME/.cargo
-    begin
-        string match "*$HOME/.cargo/bin*" $PATH
-    end
-    or begin
-        # Set up Rust config, if installed
-        # with Rustup, i.e. from Rustup script
-        set -gx PATH $HOME/.cargo/bin $PATH
+    if not contains $HOME/.cargo/bin $PATH
+	set -gx PATH $HOME/.cargo/bin $PATH
     end
 end
 
@@ -38,3 +33,6 @@ if test (uname -s) = Darwin
     # Ugly MacOS specific config
     set -gx PATH $HOME/Library/Python/3.7/bin $PATH
 end
+
+# Set up auxillary files (presently only vterm config)
+source ~/.config/fish/vterm.fish
