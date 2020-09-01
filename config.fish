@@ -15,8 +15,8 @@ if test -d /usr/local/go
     set -x GOPATH (go env GOPATH)
 
     begin
-        string match "*$GOROOT/bin*" $PATH
-        or string match "*$GOPATH/bin*" $PATH
+        contains "$GOROOT/bin" $PATH
+        or contains "$GOPATH/bin" $PATH
     end
     or begin
         set -gx PATH $GOROOT/bin $GOPATH/bin $PATH
