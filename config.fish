@@ -35,4 +35,6 @@ if test (uname -s) = Darwin
 end
 
 # Set up auxillary files (presently only vterm config)
-source ~/.config/fish/vterm.fish
+if test (uname -s) = Linux
+    source ~/.config/fish/vterm.fish
+end
