@@ -24,9 +24,8 @@ if test -d /usr/local/go
 end
 
 if test -d $HOME/.cargo
-    if not contains $HOME/.cargo/bin $PATH
-	set -gx PATH $HOME/.cargo/bin $PATH
-    end
+    # Simply source stuff into your env
+    source $HOME/.cargo/env
 end
 
 if test (uname -s) = Darwin
