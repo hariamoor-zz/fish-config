@@ -1,3 +1,6 @@
+bind -M emacs
+bind \cH backward-kill-word
+
 if test (which emacs)
     set -x EDITOR "emacsclient -t"
     set -x VISUAL "emacsclient -c -a emacs"
